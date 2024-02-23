@@ -1,0 +1,32 @@
+■English version
+
+Charm.js License (Revised January 14, 2024)
+Copyright (c) Mizuna Shima
+Website: https://lanama.net/scripts/charm/
+
+Subject to the conditions set forth below, anyone who obtains a copy of this script is granted permission to use it for commercial and non-commercial purposes free of charge.
+Please adhere to the following usage rules:
+1. When used commercially or redistributed, significant parts must include the author's credit and the official distributor.
+2. Do not remove the credits and license text within the file.
+3. Do not sell the script, nor any product primarily based on this script.
+4. Do not use the saved data from this script for monetary claims or requests for goods.
+Even if the user modifies this script, these rules must be followed.
+
+The author or copyright owner of this script shall not be liable for any damages or issues under any contract, tort, or other liabilities, in any case.
+
+
+■日本語版
+
+Charm.js ライセンス (2024年1月14日改訂)
+Copyright (c) Mizuna Shima
+Website: https://lanama.net/scripts/charm/
+
+以下に定める条件に従い、本スクリプトの複製を取得する人に対し、商用および非商用目的での利用が無償で許可されます。
+利用にあたっては以下の利用ルールを遵守してください。
+1. 商用利用または再配布時は、重要な部分に著作者表示と公式の配布元を記載すること
+2. ファイル内のクレジットおよびライセンス文章を削除しないこと
+3. 本スクリプト、および本スクリプトが主体の製品を販売しないこと
+4. 本スクリプトの保存データを用いて金銭の請求または物品の要求をしないこと
+利用者が本スクリプトを改変しても、これらのルールは遵守してください。
+
+本スクリプトの著作者または著作権所有者は、契約、不法行為、その他の責任に問わず、いかなる場合も損害や問題に対して責任を負いません。
