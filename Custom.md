@@ -94,6 +94,38 @@ class指定で省略表示をする場合は何文字の場合でもまず「cha
 
 
 
+## 先頭文字スキップ表現
+
+登録した名前をすべて表示させずに、先頭の文字をスキップした名前で表示することができます。  
+先頭の文字の後に「ゃ」「ょ」のような小さい文字や長音符がある場合は、指定の文字数より後ろから始まります。  
+一文字で登録されている場合は何も表示されません。
+
+### data指定：data-charm-skip="on"
+
+data指定の場合は「data-charm-skip="on"」を追加します。 
+
+```html
+<span class="charmname4" data-charm-skip="on">まえ</span>
+```
+
+### class指定：charm_skip
+
+class指定では「charm_skip」を追加します。 
+
+```html
+<span class="charmname4 charm_skip">まえ</span>
+```
+
+[カタカナ変換](#ひらがなカタカナ変換)と組み合わせることもできます。    
+下のコードはどちらも省略表示を並べて併用し、「ナ……マエ……」と表示します。
+```html
+<span class="charmname4" data-charm-short="1" data-charm-kana="on">ナ</span>……<span class="charmname4" data-charm-skip="on" data-charm-kana="on">マエ</span>……
+```
+```html
+<span class="charmname4 charm_short charm_kana">ナ</span>……<span class="charmname4 charm_skip charm_kana">マエ</span>……
+```
+
+
 ## 詰まり表現
 
 詰まり表現では「な、な、なまえ」のように詰まってしゃべるような表現ができます。  
@@ -377,6 +409,16 @@ class指定での文字変更時に使用できる記号一覧です。
 | ♪　 | charm_symbol36 | ♪＋スペース |
 | ！？ | charm_symbol37 | |
 | ！？　 | charm_symbol38 | ！？＋スペース |
+| っ | charm_symbol39 | |
+| っ！ | charm_symbol40 | |
+| っ！　 | charm_symbol41 | 末尾スペースあり|
+| っ、 | charm_symbol42 | |
+| っ…… | charm_symbol43 | |
+| ッ | charm_symbol44 | |
+| ッ！ | charm_symbol45 | |
+| ッ！　 | charm_symbol46 | 末尾スペースあり |
+| ッ、 | charm_symbol47 | |
+| ッ…… | charm_symbol48 | |
 
 
 class指定で設定できる回数コードはこちら。
