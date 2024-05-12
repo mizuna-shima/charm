@@ -117,12 +117,45 @@ class指定では「charm_skip」を追加します。
 ```
 
 [カタカナ変換](#ひらがなカタカナ変換)と組み合わせることもできます。    
-下のコードはどちらも省略表示を並べて併用し、「ナ……マエ……」と表示します。
+下のコードはどちらも省略表現を並べて併用し、「ナ……マエ……」と表示します。
 ```html
 <span class="charmname4" data-charm-short="1" data-charm-kana="on">ナ</span>……<span class="charmname4" data-charm-skip="on" data-charm-kana="on">マエ</span>……
 ```
 ```html
 <span class="charmname4 charm_short charm_kana">ナ</span>……<span class="charmname4 charm_skip charm_kana">マエ</span>……
+```
+
+
+
+## 末尾カット表現
+
+登録した名前をすべて表示させずに、末尾の文字をカットして表示することができます。
+末尾の文字に「ゃ」「ょ」のような小さい文字や長音符がある場合は、指定の文字数よりも多くカットします。  
+一文字で登録されている場合は何も表示されません。
+
+### data指定：data-charm-chop="on"
+
+data指定の場合は「data-charm-chop="on"」を追加します。 
+
+```html
+<span class="charmname4" data-charm-chop="on">なま</span>
+```
+
+### class指定：charm_chop
+
+class指定では「charm_chop」を追加します。 
+
+```html
+<span class="charmname4 charm_chop">なま</span>
+```
+
+[カタカナ変換](#ひらがなカタカナ変換)と組み合わせることもできます。    
+下のコードはどちらも省略表現を並べて併用し、「ナマ……エ……」と表示します。
+```html
+<span class="charmname4" data-charm-chop="on" data-charm-kana="on">ナマ</span>……<span class="charmname4" data-charm-last="on" data-charm-kana="on">エ</span>……
+```
+```html
+<span class="charmname4 charm_chop charm_kana">ナマ</span>……<span class="charmname4 charm_last charm_kana">エ</span>……
 ```
 
 
@@ -321,6 +354,52 @@ data属性とは違い、class指定は決まった文字から選んで指定�
 このコードで「――え――まえ――」になります。
 ```html
 <span class="charmname4 charm_echo charm_symbol04">――え――まえ――</span>
+```
+
+# 重複表現
+重複表現は、文字を一文字ずつ区切って複数文字ずつ表示します。
+バグった機械のように「名前」という登録だけで「名名前前」、「なまえ」で「ななままええ」といった表現ができます。
+「ゃ」「ょ」のような小さい文字や長音符がある場合は前の文字と一緒に区切って表示します。
+
+### data指定：data-charm-overlap="on"
+これで「ななままええ」になります。デフォルトの重複回数は2回です。
+```html
+<span class="charmname4" data-charm-overlap="on">ななままええ</span>
+```
+
+#### data追加オプション：data-charm-ovl-count="●"
+重複回数を変更するには追加の指定をします。
+例えば、五回なら「data-charm-ovl-count="5"」を追加します。
+数字部分は重複回数です。
+※回数は自由に設定できますが、1指定だと重複しません。
+```html
+<span class="charmname4" data-charm-overlap="on" data-charm-ovl-count="5">なななななまままままえええええ</span>
+```
+
+### class指定：charm_overlap
+これで「ななままええ」になります。data属性指定と同じく、デフォルトの重複回数は2回です。
+```html
+<span class="charmname4 charm_overlap">ななままええ</span>
+```
+
+#### class追加オプション：charm_count●
+重複回数を変更するには追加の指定をします。
+class指定の場合、指定できる回数は1～9です。  
+重複回数が三回ら「charm_count3」、九回なら「charm_count9」を追加します。数字部分は重複回数です。
+※回数は自由に設定できますが、1指定だと重複しません。
+
+このコードで「なななななまままままえええええ」になります。
+```html
+<span class="charmname4 charm_overlap charm_count5">なななななまままままえええええ</span>
+```
+
+他の表現と同様に[カタカナ変換](#ひらがなカタカナ変換)も一緒に使えます。  
+下のコードはどちらも「ナナナナママママエエエエ」と表示します。
+```html
+<span class="charmname4" data-charm-kana="on" data-charm-overlap="on" data-charm-ovl-count="4">ナナナナママママエエエエ</span>
+```
+```html
+<span class="charmname4 charm_kana charm_overlap charm_count4">ナナナナママママエエエエ</span>
 ```
 
 # 母音のばし表現
