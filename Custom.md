@@ -38,6 +38,20 @@ class指定の場合、詰まりや母音のばし等の数指定は一つのspa
 <span class="charmname4 charm_kana">ナマエ</span>
 ```
 
+## カタカナ→ひらがな変換
+
+カタカナの登録のみで、ひらがな表記を使うことができます。  
+カタカナで呼ぶことが多い場合は閲覧者さんにはカタカナで登録してもらい、特殊な場面でのみこのカスタムでひらがな表記をする、等にどうぞ  
+
+### data指定：data-charm-hira="on"
+```html
+<span class="charmname4" data-charm-hira="on">なまえ</span>
+```
+### class指定：charm_hira
+```html
+<span class="charmname4 charm_hira">なまえ</span>
+```
+
 
 ## 省略表現
 
@@ -124,7 +138,6 @@ class指定では「charm_skip」を追加します。
 ```html
 <span class="charmname4 charm_short charm_kana">ナ</span>……<span class="charmname4 charm_skip charm_kana">マエ</span>……
 ```
-
 
 
 ## 末尾カット表現
@@ -400,6 +413,29 @@ class指定の場合、指定できる回数は1～9です。
 ```
 ```html
 <span class="charmname4 charm_kana charm_overlap charm_count4">ナナナナママママエエエエ</span>
+```
+
+
+## 逆順表現
+
+登録した名前を逆順に表示します。  
+末尾の文字に「ゃ」「ょ」のような小さい文字や長音符がある場合は、前の文字と一緒に並べ替えます。  
+なまえ→えまな、みょうじ→じうみょ という感じです。
+
+### data指定：data-charm-chop="on"
+
+data指定の場合は「data-charm-rev="on"」を追加します。 
+
+```html
+<span class="charmname4" data-charm-rev="on">えまな</span>
+```
+
+### class指定：charm_rev
+
+class指定では「charm_rev」を追加します。 
+
+```html
+<span class="charmname4 charm_rev">えまな</span>
 ```
 
 # 母音のばし表現

@@ -25,17 +25,6 @@ CDNを使う場合はご自身のサイトにcharm.jsをアップロードする
 https://cdn.jsdelivr.net/gh/mizuna-shima/charm@main/public/charm.min.js
 
 ## 名前登録ページの設定
-### charm.jsファイルを読み込む
-```html
-<script src="charm.js"></script>
-```
-特にこだわりがないのであれば、bodyの閉じタグ直前に書いておくがおすすめです。  
-スクリプトの保存場所が名前登録ページと違うフォルダの場合はsrcの内容を変更してください。  
-CDNを使う場合はsrcを[CDNリンク](#CDN)に変更してください。  
-例：
-```html
-<script src="https://cdn.jsdelivr.net/gh/mizuna-shima/charm@main/public/charm.min.js"></script>
-```
 
 ### 名前登録フォームを設定
 + 入力欄のinputタグ全てにclass「charm」を設定します。
@@ -74,6 +63,20 @@ CDNを使う場合はsrcを[CDNリンク](#CDN)に変更してください。
 なまえ4 <input type="text" id="charmname8" class="charm">
 ```
 特にidは連番にしなくてもいいので、あとあと使いやすい名称を設定してください。
+
+### リアルタイム保存・削除を追加
+この機能が欲しい方だけ対応してください。  
+リアルタイム保存・削除に対応するには、全てのinputタグのclassに「charmnow」または「charmnowsession」を追加します。  
+charmnowは通常登録、charmnowsessionは一時登録です。  
+通常登録と一時登録の違いは次の項を参照してください。  
+※リアルタイム保存機能と登録・位置値登録・削除ボタンは併用可能です。  
+※項目数が多くなると動作が重くなることがあります。十分に動作確認をして、実装するかご検討ください。  
+```html
+苗字 <input type="text" id="charmname1" class="charm charmnow">
+みょうじ <input type="text" id="charmname2" class="charm charmnow">
+名前 <input type="text" id="charmname3" class="charm charmnow">
+なまえ <input type="text" id="charmname4" class="charm charmnow">
+```
 
 ### 登録ボタンと削除ボタンを設定
 
@@ -143,14 +146,19 @@ Cookieのように保存内容がサーバへ送信されることはありま�
 <div id="charmsessionmsg"></div>
 ```
 
-## 小説ページの設定
 ### charm.jsファイルを読み込む
 ```html
 <script src="charm.js"></script>
 ```
 特にこだわりがないのであれば、bodyの閉じタグ直前に書いておくがおすすめです。  
-スクリプトの保存場所が小説ページと違うフォルダの場合はsrcの内容を変更してください。  
-CDNを使う場合はsrcを[CDNリンク](#CDN)に変更してください。
+スクリプトの保存場所が名前登録ページと違うフォルダの場合はsrcの内容を変更してください。  
+CDNを使う場合はsrcを[CDNリンク](#CDN)に変更してください。  
+例：
+```html
+<script src="https://cdn.jsdelivr.net/gh/mizuna-shima/charm@main/public/charm.min.js"></script>
+```
+
+## 小説ページの設定
 
 ### 登録内容の表示を設定
 
@@ -171,6 +179,15 @@ spanタグのclassは、登録inputタグのidと同じものを設定します�
 
 名前変換ページと同じく、spanタグの中身は未登録のときに表示される文字です。  
 未登録時の文字は他のページに影響しないので、全ページで変更しても問題ありません。
+
+### charm.jsファイルを読み込む
+```html
+<script src="charm.js"></script>
+```
+特にこだわりがないのであれば、bodyの閉じタグ直前に書いておくがおすすめです。  
+スクリプトの保存場所が小説ページと違うフォルダの場合はsrcの内容を変更してください。  
+CDNを使う場合はsrcを[CDNリンク](#CDN)に変更してください。
+
 
 基本的な導入設定は以上です。設定お疲れさまでした。
 
