@@ -104,3 +104,4 @@ JavaScriptがわからなくてもHTMLがわかれば少しのコードで導入
 Charm.jsの開発・改修にあたり大変お世話になりました。ありがとうございました。  
 [@takiagari](https://github.com/takiagari)さん - Charm.js v3系移行時の、カスタム変換の判定処理と実行処理の分離
 
+
