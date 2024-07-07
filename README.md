@@ -18,7 +18,7 @@ JavaScriptがわからなくてもHTMLがわかれば少しのコードで導入
 - スクリプトがhtmlから独立しているので管理が容易
 - Charm.js単独でプログラムが完結するので、様々な環境で導入可能
 - jQueryなどのライブラリ、WordPressで人気のPHP、他のサーバーサイド言語を併用しても動く
-- スクリプトファイルは軽め（19KBくらいのJavaScriptファイル1つだけ）
+- スクリプトファイルは軽め（20KBくらいのJavaScriptファイル1つだけ）
 - モダンブラウザならスマホでも動く
 - 登録データはLocalStorageまたはSessionStorage保存
 
@@ -97,6 +97,18 @@ JavaScriptがわからなくてもHTMLがわかれば少しのコードで導入
 文字区切りや母音表示などの特殊な変換は [Charm.jsのカスタム変換](Custom.md) をご覧ください。
 
 利用規約の不明点は [利用条件・その他のQ&A](FandA.md) をご覧ください。
+
+
+## リポジトリ内ディレクトリ構成
+- archives: これまでのCharm.jsのzipファイル置き場
+- extension: 拡張コード置き場（Charm.jsの後に使うコードだけ読み込んでください）
+- public: CDN用の最新Charm.jsファイルディレクトリ
+
+
+## 関連スクリプト
+### Utakata.js
+スライドショースクリプトです。名前変換に対応したスライドショーや夢漫画を表示することができます。   
+https://lanama.net/scripts/utakata/
 
 
 ## Special Thanks
