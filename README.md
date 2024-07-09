@@ -99,6 +99,16 @@ JavaScriptがわからなくてもHTMLがわかれば少しのコードで導入
 利用規約の不明点は [利用条件・その他のQ&A](FandA.md) をご覧ください。
 
 
+## Webストレージの保存キーについて
+Webストレージの仕様上、同一ドメインの中では保存内容が共有されます。  
+同じドメイン配下での共有サーバや、同一ドメイン内で複数の登録フォームを使いたい場合は保存キーを変更する必要があります。  
+スクリプト本体内の`static storageKeyName`の値を変更するか、script読み込み時にdata-charm-storageで保存キー名を指定します。  
+```
+<!-- XXXXは任意の保存キー名 -->
+<script src=&quot;charm.js&quot; data-charm-storage="XXXX"></script>;
+```
+
+
 ## リポジトリ内ディレクトリ構成
 - archives: これまでのCharm.jsのzipファイル置き場
 - extension: 拡張コード置き場（Charm.jsの後に使うコードだけ読み込んでください）
