@@ -105,7 +105,7 @@ Webストレージの仕様上、同一ドメインの中では保存内容が�
 スクリプト本体内の`static storageKeyName`の値を変更するか、script読み込み時にdata-charm-storageで保存キー名を指定します。  
 ```
 <!-- XXXXは任意の保存キー名 -->
-<script src=&quot;charm.js&quot; data-charm-storage="XXXX"></script>;
+<script src="charm.js" data-charm-storage="XXXX"></script>;
 ```
 
 
