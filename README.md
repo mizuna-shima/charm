@@ -111,7 +111,8 @@ Webストレージの仕様上、同一ドメインの中では保存内容が�
 
 ## リポジトリ内ディレクトリ構成
 - archives: これまでのCharm.jsのzipファイル置き場
-- extension: 拡張コード置き場（Charm.jsの後に使うコードだけ読み込んでください）
+- extension: 拡張コード置き場（Charm.jsの後に使うコードだけ読み込んでください）  
+拡張コードの使い方や編集が必要な個所は[開発者のブログ](https://labo.lanama.net/archives/category/charm/charm-js%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd)で紹介しています。
 - public: CDN用の最新Charm.jsファイルディレクトリ
 
 

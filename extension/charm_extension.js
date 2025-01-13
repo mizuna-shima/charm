@@ -123,7 +123,6 @@ Charm.addEExtension("ElementRemover", ElementRemover);
 
 
 
-
 /********************************* デバッグモード拡張ここから *********************************/
 /**
  * 変換した名前を色付けして動作確認しやすくする、デバッグモードを搭載する拡張機能
@@ -185,3 +184,142 @@ class Debug {
 Charm.addEExtension("Debug", Debug);
 
 /********************************* デバッグモード拡張ここまで *********************************/
+
+
+
+/********************************* 通常変換プレースホルダー置換ここから *********************************/
+
+/**
+ * 通常変換プレースホルダー置換
+ * #登録id#で書いたプレースホルダーをspanタグに置換する
+ */
+class BeforeSpanReplacer {
+  // 登録idとデフォルトネーム
+  static replacements = {
+    'charmname1': '苗字',
+    'charmname2': 'みょうじ',
+    'charmname3': '名前',
+    'charmname4': 'なまえ',
+  };
+
+  // 置換対象のタグリスト
+  static targetTags = [
+    'p', 'ruby', 'rt', 'h1', 'h2', 'h3', 'h4', 'h5', 'li', 'th', 'td', 'a', 'span', 'div'
+  ];
+
+  /**
+   * 置換処理を実行
+   */
+  static run = () => {
+    this.replaceText();
+  };
+
+  /**
+   * 指定されたタグ内のテキストを置換
+   */
+  static replaceText = () => {
+    this.targetTags.forEach(tag => {
+      const elements = document.querySelectorAll(tag);
+      elements.forEach(elm => {
+        this.replacePlaceholdersInElement(elm);
+      });
+    });
+  };
+
+  /**
+   * 要素内のテキストノードのプレースホルダーを置換
+   * @param {Element} element - 置換対象の要素
+   */
+  static replacePlaceholdersInElement = (element) => {
+    const childNodes = Array.from(element.childNodes);
+    childNodes.forEach(child => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        const replacedNodes = this.createReplacementNodes(child.textContent);
+        child.replaceWith(...replacedNodes);
+      } else if (child.nodeType === Node.ELEMENT_NODE) {
+        this.replacePlaceholdersInElement(child);
+      }
+    });
+  };
+
+  /**
+   * テキスト中のプレースホルダーを置換して新しいノードを生成
+   * @param {string} text - 置換対象のテキスト
+   * @returns {Array} 置換後のノード配列
+   */
+  static createReplacementNodes = (text) => {
+    const fragment = document.createDocumentFragment();
+    const parts = text.split(new RegExp(`(#${Object.keys(this.replacements).join('#|#')}#)`));
+
+    parts.forEach(part => {
+      const key = part.replace(/#/g, '');
+      if (this.replacements[key]) {
+        const span = document.createElement('span');
+        span.className = key;
+        span.textContent = this.replacements[key];
+        fragment.appendChild(span);
+      } else {
+        fragment.appendChild(document.createTextNode(part));
+      }
+    });
+    return Array.from(fragment.childNodes);
+  };
+}
+
+Charm.addExtension("BeforeSpanReplacer", BeforeSpanReplacer);
+
+/********************************* 通常変換プレースホルダー置換ここまで *********************************/
+
+
+
+/********************************* プルダウン登録内容をカテゴリ別に出し分けここから *********************************/
+
+/**
+ * プルダウン登録内容をカテゴリ別に出し分け
+ * 登録ページ以外で置換処理を行う
+ */
+class AfterSwitchText {
+
+  // 選択肢
+  static values = ['白', '黒', '灰色'];
+
+  // カテゴリ別テキスト
+  static replaceList = {
+    'place': ['雪国', '異国', '都会'],
+    'cat': ['白い猫の妖精', '異界の黒猫', '銀色に輝く猫神'],
+    'magic': ['白い花を咲かせる', 'ビターチョコを無限に生む', '銀の雨を降らせる'],
+  };
+
+  static run = () => {
+    AfterSwitchText.start();
+  };
+
+  /**
+   * 入力タグが存在するかどうかをチェック
+   */ 
+  static hasSyncTags = () => {
+    return document.getElementsByClassName(Charm.nameClass).length > 0;
+  };
+
+  static start = () => {
+    // 再変換では動かせないので、入力タグが存在する場合は処理をしない
+    if (AfterSwitchText.hasSyncTags()) return;
+    const elms = document.querySelectorAll('[data-charm-switch]');
+    elms.forEach(elm => {
+      const dataKey = elm.getAttribute('data-charm-switch');
+      const text = elm.textContent.trim();
+      let index = AfterSwitchText.values.indexOf(text);
+      // 該当する値がない場合は最初の値を使用
+      if (index === -1) {
+        index = 0;
+      }
+      if (AfterSwitchText.replaceList[dataKey]) {
+        elm.textContent = AfterSwitchText.replaceList[dataKey][index];
+      }
+    });
+  };
+}
+// 拡張を追加するコード
+Charm.addEExtension("AfterSwitchText", AfterSwitchText);
+
+/********************************* プルダウン登録内容をカテゴリ別に出し分けここまで *********************************/

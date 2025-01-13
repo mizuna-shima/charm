@@ -67,6 +67,22 @@ class指定の場合、詰まりや母音のばし等の数指定は一つのspa
 <span class="charmname4 charm_mix">ナまエ</span>
 ```
 
+## イニシャル変換
+
+ひらがな、またはカタカナで登録した名前の頭文字からイニシャルを半角英字の大文字で表示します。  
+英字の名前はそのまま頭文字の英字を大文字にします。  
+日本語表記で最もポピュラーなヘボン式ローマ字表記のルールに近いですが、現代の和名であまり使われない\[ゐ゙→E]「ぢゃ→J」など、一部は違う動きをします。  
+現代の50音表にある文字 + 拗音（小さい文字）なしの濁音と半濁音は対応しているので、たいていの和風の名前はカバーできます。  
+ひらがな、カタカナ、英字以外の文字に大しては何も表示しなくなります
+
+### data指定：data-charm-initial="on"
+```html
+<span class="charmname4" data-charm-initial="on">N</span>
+```
+### class指定：charm_initial
+```html
+<span class="charmname4 charm_initial">N</span>
+```
 
 ## 省略表現
 
