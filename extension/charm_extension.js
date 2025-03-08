@@ -323,3 +323,48 @@ class AfterSwitchText {
 Charm.addEExtension("AfterSwitchText", AfterSwitchText);
 
 /********************************* プルダウン登録内容をカテゴリ別に出し分けここまで *********************************/
+
+
+
+/********************************* 猫語置換ここから *********************************/
+
+/**
+ * 猫語置換
+ * 登録ページ以外で猫語っぽく置換処理を行う
+ */
+
+class MeowConverter {
+  static hiraganaClass = 'charm_meow';
+  static katakanaClass = 'charm_meow_kana';
+
+  static run = () => {
+    MeowConverter.start();
+  };
+
+  /**
+   * 入力タグが存在するかどうかをチェック
+   */ 
+  static hasSyncTags = () => {
+    return document.getElementsByClassName(Charm.nameClass).length > 0;
+  };
+
+  static start = () => {
+    // 再変換では動かせないので、入力タグが存在する場合は処理をしない
+    if (MeowConverter.hasSyncTags()) return;
+
+    // ひらがな指定クラス
+    Array.from(document.getElementsByClassName(MeowConverter.hiraganaClass)).forEach(el => {
+      el.textContent = el.textContent.replace(/な/g, 'にゃ').replace(/ナ/g, 'ニャ');
+    });
+
+    // カタカナ指定クラス
+    Array.from(document.getElementsByClassName(MeowConverter.katakanaClass)).forEach(el => {
+      el.textContent = el.textContent.replace(/な|ナ/g, 'ニャ');
+    });
+  };
+}
+
+// 拡張を追加
+Charm.addEExtension('MeowConverter', MeowConverter);
+
+/********************************* 猫語置換ここから *********************************/
