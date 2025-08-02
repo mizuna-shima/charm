@@ -23,7 +23,6 @@ class指定の場合、詰まりや母音のばし等の数指定は一つのspa
 <span class="charmname4">なまえ</span>
 ```
 
-
 ## ひらがな→カタカナ変換
 
 ひらがなの登録のみで、カタカナ表記を使うことができます。  
@@ -429,7 +428,7 @@ data属性とは違い、class指定は決まった文字から選んで指定�
 #### class追加オプション：charm_count●
 重複回数を変更するには追加の指定をします。
 class指定の場合、指定できる回数は1～9です。  
-重複回数が三回ら「charm_count3」、九回なら「charm_count9」を追加します。数字部分は重複回数です。
+重複回数が三回なら「charm_count3」、九回なら「charm_count9」を追加します。数字部分は重複回数です。
 ※回数は自由に設定できますが、1指定だと重複しません。
 
 このコードで「なななななまままままえええええ」になります。
@@ -510,6 +509,32 @@ class指定では「charm_rev」を追加します。
 ```html
 <span class="charmname2">みょうじ</span><span class="charmname2" data-charm-vowel="1" data-charm-vowel-count="8">いいいいいいいいい</span>
 ```
+
+### class指定：charm_vowel
+
+class指定では「charm_vowel」を追加します。 
+
+```html
+<span class="charmname2 charm_vowel">い</span>
+```
+
+### class指定：charm_vowel_min
+
+class指定で小さい文字（ぁぃぅぇぉ）指定の場合は「charm_vowel_min」を使います。 
+
+```html
+<span class="charmname2 charm_vowel_min">ぃ</span>
+```
+
+#### class追加オプション：charm_count●
+重複回数を変更するには追加の指定をします。
+class指定の場合、指定できる回数は1～9です。  
+表示数が三回なら「charm_count3」、九回なら「charm_count9」を追加します。数字部分が回数です。
+```html
+<span class="charmname2 charm_vowel charm_count8">いいいいいいいいい</span>
+```
+
+---
 
 ## class指定の記号と回数コード一覧
 
