@@ -25,8 +25,9 @@ CDNを使う場合はご自身のサイトにcharm.jsをアップロードする
 ただし、機能追加やバグ修正等のために内容が予告なく変わることがあります。   
 #### 常に最新版のCDN URL
 https://cdn.jsdelivr.net/gh/mizuna-shima/charm@main/public/charm.min.js
+
 #### 固定バージョン（v3.6.0）
-https://cdn.jsdelivr.net/gh/mizuna-shima/charm@main/public/3.6.0/charm.min.js
+https://cdn.jsdelivr.net/gh/mizuna-shima/charm/public/3.6.0/charm.min.js
 
 ## 名前登録ページの設定
 
