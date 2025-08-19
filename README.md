@@ -1,4 +1,4 @@
-<img width="1600" height="838" alt="note_charm" src="https://github.com/user-attachments/assets/27e6b570-92c6-44ef-8d1f-150eb6facc2b" />
+<img width="1600" height="838" alt="note_charm" src="https://github.com/user-attachments/assets/658c3079-1a0b-4ae2-9c41-b56f0df491e1" />
 
 # Charm.js
 このページの解説は配布サイトをベースにしています。  
