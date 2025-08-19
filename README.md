@@ -1,3 +1,5 @@
+<img width="1600" height="838" alt="note_charm" src="https://github.com/user-attachments/assets/27e6b570-92c6-44ef-8d1f-150eb6facc2b" />
+
 # Charm.js
 このページの解説は配布サイトをベースにしています。  
 より詳細な情報を入手するには配布サイトにアクセスしてください。  
@@ -129,5 +131,6 @@ https://lanama.net/scripts/utakata/
   
 Charm.jsの開発・改修にあたり大変お世話になりました。ありがとうございました。  
 [@takiagari](https://github.com/takiagari)さん - Charm.js v3系移行時の、カスタム変換の判定処理と実行処理の分離
+
 
 
