@@ -231,6 +231,8 @@ class BeforeSpanReplacer {
    * @param {Element} element - 置換対象の要素
    */
   static replacePlaceholdersInElement = (element) => {
+    // script内のプログラムやJSONは本文の置換対象にしない。
+    if (element.tagName === "SCRIPT") return;
     const childNodes = Array.from(element.childNodes);
     childNodes.forEach(child => {
       if (child.nodeType === Node.TEXT_NODE) {
@@ -252,8 +254,11 @@ class BeforeSpanReplacer {
     const parts = text.split(new RegExp(`(#${Object.keys(this.replacements).join('#|#')}#)`));
 
     parts.forEach(part => {
-      const key = part.replace(/#/g, '');
-      if (this.replacements[key]) {
+      // splitの結果には普通の文字列も含まれるため、両端の#を確認する。
+      const key = part.slice(1, -1);
+      if (part.startsWith('#') && part.endsWith('#') &&
+          Object.prototype.hasOwnProperty.call(this.replacements, key) &&
+          this.replacements[key]) {
         const span = document.createElement('span');
         span.className = key;
         span.textContent = this.replacements[key];
